@@ -1,0 +1,8 @@
+name: newapp
+recipe: laravel
+config:
+  webroot: ./public
+  php: '8.3'
+  via: apache
+  database: mariadb
+  cache: redis
