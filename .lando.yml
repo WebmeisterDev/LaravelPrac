@@ -4,5 +4,5 @@ config:
   webroot: ./public
   php: '8.3'
   via: apache
-  database: mariadb
+  database: mysql:8.0
   cache: redis
