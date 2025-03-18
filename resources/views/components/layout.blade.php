@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-full bg-grey-100">
+<html lang="en" class="h-full bg-gray-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,9 +24,9 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="/" class="{{ request()->is('/') ? 'bg-gray-900 text-white': 'text-gray-300 hover:bg-gray-700 hover:text-white'}} rounded-md px-3 py-2 text-sm font-medium">Home</a>
-                            <a href="/contact" class="{{ request()->is('contact') ? 'bg-gray-900 text-white': 'text-gray-300 hover:bg-gray-700 hover:text-white'}} rounded-md px-3 py-2 text-sm font-medium">Contact</a>
-                            <a href="/about" class="{{ request()->is('about') ? 'bg-gray-900 text-white': 'text-gray-300 hover:bg-gray-700 hover:text-white'}} rounded-md px-3 py-2 text-sm font-medium">About</a>
+                            <x-nav-link href="/" :active="request()->is('home')">Home</x-nav-link>
+                            <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                            <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                 <button type="button" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="size-8 rounded-full" src="/home/websterchiunda/Documents/Dev/projects/laravel/newapp/public/img/LinuxPenguin.png" alt="">
+                                    <img class="size-8 rounded-full" src="{{ asset('img/LinuxPenguin.png') }}" alt="">
                                 </button>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
             <div class="border-t border-gray-700 pt-4 pb-3">
                 <div class="flex items-center px-5">
                     <div class="shrink-0">
-                        <img class="size-10 rounded-full" src="public/img/LinuxPenguin.png" alt="">
+                        <img class="size-10 rounded-full" src="{{ asset('img/LinuxPenguin.png') }}" alt="">
                     </div>
                     <div class="ml-3">
                         <div class="text-base/5 font-medium text-white">Webster</div>
