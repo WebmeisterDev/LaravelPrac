@@ -1,4 +1,4 @@
-name: pracapp
+name: LaravelPrac
 recipe: laravel
 config:
   webroot: ./public
@@ -8,18 +8,24 @@ config:
   cache: redis
 
 services:
+  appserver:
+    type: php:8.4
+    build_as_root:
+      - curl -sS https://getcomposer.org/installer | php -- --version=2.8.8 --install-dir=/usr/local/bin --filename=composer
+    overrides:
+      environment:
+        PATH: "/usr/local/bin:$PATH"
+
   database:
     type: mariadb:11.4.4
     portforward: true
     creds:
       user: laravel
-    
       database: laravel
     config:
       databases:
         - laravel
       user: laravel
-      
       default: laravel
 
   phpmyadmin:
@@ -30,5 +36,4 @@ services:
     config:
       host: database
       user: laravel
-    
       verbose: true
